@@ -40,6 +40,12 @@ và cách tải dữ liệu. Dữ liệu thô dung lượng lớn không đượ
 ```text
 .
 ├── README.md              # Giới thiệu và hướng dẫn cập nhật website
+├── index.md               # Trang chủ, lấy nội dung từ README
+├── _config.yml            # Cấu hình Jekyll và theme Primer
+├── Gemfile                # Thư viện Ruby cho website
+├── Gemfile.lock           # Các phiên bản thư viện đã khóa
+├── .github/workflows/
+│   └── pages.yml          # Build và deploy website bằng GitHub Actions
 ├── preprocessing.md       # Đề bài và tiêu chí chấm điểm
 ├── pyproject.toml         # Cấu hình dự án Python
 ├── .python-version        # Phiên bản Python dùng khi phát triển
@@ -59,17 +65,41 @@ uv sync
 Lệnh này chuẩn bị môi trường Python. Các thư viện phân tích và công cụ dựng book
 sẽ được bổ sung khi triển khai; hiện chưa có lệnh build hoặc preview Jupyter Book.
 
-## Xuất bản trang README lên GitHub Pages
+## Xem trước website ở local
 
-Trong giai đoạn đầu, có thể dùng README làm trang giới thiệu. Trên GitHub:
+Website hiện dùng Jekyll 4.4 và theme Primer. Cần Ruby 3.4 và Bundler; Python
+không thực hiện bước build website này.
+
+Sau khi cài Bundler, chạy tại thư mục repository:
+
+```bash
+bundle config set --local path vendor/bundle
+bundle install
+bundle exec jekyll serve --livereload
+```
+
+Mở <http://localhost:4000/> để xem trước. Sau khi sửa `_config.yml`, dừng server
+bằng **Ctrl + C** và chạy lại. Có thể build riêng bằng `bundle exec jekyll build`;
+HTML/CSS được tạo trong `_site/`. Các thư mục `_site/`, `vendor/` và `.bundle/`
+đã được Git bỏ qua.
+
+## Xuất bản lên GitHub Pages
+
+Repository dùng workflow `.github/workflows/pages.yml` để cài Ruby 3.4, cài các
+thư viện theo `Gemfile.lock`, build Jekyll rồi deploy `_site/` lên Pages.
+
+Thiết lập một lần trên GitHub:
 
 1. Mở repository, vào **Settings → Pages**.
-2. Trong **Build and deployment → Source**, chọn **Deploy from a branch**.
-3. Chọn nhánh **main**, thư mục **/(root)** rồi nhấn **Save**.
+2. Trong **Build and deployment → Source**, chọn **GitHub Actions**.
+3. Sau khi workflow có trên nhánh `main`, mở tab **Actions**, chọn
+   **Deploy Jekyll site to Pages** để theo dõi. Có thể chọn **Run workflow** trên
+   nhánh `main` nếu cần chạy thủ công.
 
-GitHub Pages có thể dùng `README.md` làm trang đầu khi thư mục xuất bản chưa có
-`index.html` hoặc `index.md`. Nếu đã có một trong hai file index, hãy chỉnh trang
-đó để thay đổi nội dung trang chủ.
+Chế độ **Deploy from a branch** dùng bộ thư viện mặc định của GitHub Pages,
+không đáp ứng yêu cầu Jekyll 4.4 trong `Gemfile` hiện tại. Khi thấy thông báo
+`The github-pages gem can't satisfy your Gemfile's dependencies`, kiểm tra lại
+rằng Source đã là **GitHub Actions** và workflow tự build ở trên đang được dùng.
 
 ## Cập nhật website từ máy cá nhân
 
@@ -81,8 +111,8 @@ git commit -m "docs: update project introduction and Pages guide"
 git push origin main
 ```
 
-Với cấu hình xuất bản từ `main` và `/(root)` ở trên, GitHub sẽ tự build và deploy
-sau khi push. Mở tab **Actions** trong repository để xem tiến trình và lỗi nếu có.
+Workflow tự build và deploy sau mỗi lần push vào `main`. Mở tab **Actions** trong
+repository để xem tiến trình và lỗi nếu có.
 Khi workflow thành công, mở website và tải lại trang. Thay đổi có thể mất tới
 10 phút để xuất hiện; nếu còn thấy nội dung cũ, thử **Ctrl + Shift + R**.
 
@@ -92,12 +122,13 @@ chỉnh nội dung rồi **Commit changes** vào `main`. Sau đó, tại máy c�
 
 ## Chuyển sang Jupyter Book
 
-Khi khung book được triển khai, repository sẽ có nguồn notebook, cấu hình book,
-hướng dẫn build và workflow xuất bản. Khi đó sẽ chuyển **Settings → Pages →
-Source** sang **GitHub Actions** để workflow build và deploy HTML của book.
-Nội dung website lúc đó được cập nhật bằng cách sửa nguồn book và push lên GitHub.
+Khi khung book được triển khai, repository sẽ có nguồn notebook, cấu hình book và
+hướng dẫn build. Workflow sẽ được cập nhật để build book và deploy HTML của book;
+Source của Pages tiếp tục là **GitHub Actions**. Nội dung website lúc đó được cập
+nhật bằng cách sửa nguồn book và push lên GitHub.
 
 ## Tài liệu tham khảo
 
 - [Cấu hình nguồn xuất bản GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
 - [Tạo site, chọn trang đầu và thời gian xuất bản](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site)
+- [Build Jekyll bằng GitHub Actions với phiên bản và thư viện tùy chọn](https://jekyllrb.com/docs/continuous-integration/github-actions/)
