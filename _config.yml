@@ -1,0 +1,10 @@
+title: Nguyễn Võ Tấn Duy
+description: Đồ án cá nhân — Tiền xử lý chuỗi thời gian và văn bản
+url: https://nguyenvotanduy2006.github.io
+baseurl: ""
+theme: jekyll-theme-primer
+
+exclude:
+  - vendor
+  - Gemfile
+  - Gemfile.lock
