@@ -9,9 +9,26 @@ wheels/
 # Virtual environments
 .venv
 
-# Jekyll and local Ruby dependencies
-.bundle/
-vendor/
-_site/
-.jekyll-cache/
-.jekyll-metadata
+# MyST build outputs
+_build
+
+# Local datasets (keep folder placeholders)
+/data/*
+!/data/raw/
+!/data/interim/
+!/data/processed/
+/data/raw/*
+!/data/raw/.gitkeep
+/data/interim/*
+!/data/interim/.gitkeep
+/data/processed/*
+!/data/processed/.gitkeep
+
+# Generated analysis outputs (keep folder placeholders)
+/outputs/*
+!/outputs/figures/
+!/outputs/tables/
+/outputs/figures/*
+!/outputs/figures/.gitkeep
+/outputs/tables/*
+!/outputs/tables/.gitkeep

@@ -1,5 +1,0 @@
-source "https://rubygems.org"
-
-gem "jekyll", "~> 4.4"
-gem "jekyll-theme-primer", "~> 0.6"
-gem "webrick"
