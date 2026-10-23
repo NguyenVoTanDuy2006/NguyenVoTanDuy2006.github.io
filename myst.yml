@@ -1,0 +1,20 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  id: 0da2d2f1-2c9f-42c5-8186-742b798b4dda
+  title: Tiền xử lý dữ liệu — Chuỗi thời gian và văn bản
+  description: Đồ án cá nhân môn Khai phá dữ liệu
+  github: https://github.com/NguyenVoTanDuy2006/NguyenVoTanDuy2006.github.io
+  toc:
+    - file: book/index.md
+    - title: Chuỗi thời gian
+      children:
+        - file: book/time_series/index.md
+    - title: Văn bản
+      children:
+        - file: book/text/index.md
+site:
+  template: book-theme
+  # options:
+  #   favicon: favicon.ico
+  #   logo: site_logo.png
