@@ -7,12 +7,9 @@ project:
   github: https://github.com/NguyenVoTanDuy2006/NguyenVoTanDuy2006.github.io
   toc:
     - file: book/index.md
-    - title: Chuỗi thời gian
-      children:
-        - file: book/time_series/index.md
-    - title: Văn bản
-      children:
-        - file: book/text/index.md
+    - file: book/03_temporal_preprocessing.ipynb
+    - file: book/06_text_preprocessing.ipynb
+    - file: book/report.md
 site:
   template: book-theme
   # options:

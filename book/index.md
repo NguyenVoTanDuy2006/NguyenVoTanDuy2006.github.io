@@ -5,11 +5,11 @@
 
 Book được chia thành hai phần:
 
-- [Chuỗi thời gian](time_series/index.md): EDA, xử lý khoảng trống, kiểm định tính
-  dừng, phân rã, phát hiện dị thường và tạo đặc trưng dự báo.
-- [Văn bản](text/index.md): EDA, chuẩn hóa, tokenization, vector hóa và đánh giá
-  biểu diễn văn bản.
+- [Chuỗi thời gian](03_temporal_preprocessing.ipynb): EDA, xử lý khoảng trống, kiểm
+  định tính dừng, phân rã, phát hiện dị thường và tạo đặc trưng dự báo.
+- [Văn bản](06_text_preprocessing.ipynb): EDA, chuẩn hóa, tokenization, vector hóa
+  và đánh giá biểu diễn văn bản.
 
-Các notebook và kết quả thực nghiệm sẽ được bổ sung vào từng phần sau khi chọn dữ
-liệu. Dữ liệu thô dung lượng lớn sẽ được tải từ nguồn công khai trong notebook,
-không lưu trực tiếp trong repository.
+Các notebook sẽ trình bày lý thuyết, cài đặt và phân tích kết quả cho từng kỹ thuật.
+Phần [báo cáo](report.md) tổng hợp so sánh và hạn chế. Dữ liệu thô được tải từ nguồn
+công khai và không lưu trực tiếp trong repository.

@@ -56,9 +56,10 @@ BY-NC-SA 4.0.
 ├── pyproject.toml, uv.lock           # Cấu hình và khóa phụ thuộc Python
 ├── book/
 │   ├── index.md                      # Trang mở đầu
-│   ├── time_series/                  # Nội dung và notebook chuỗi thời gian
-│   └── text/                         # Nội dung và notebook văn bản
-├── src/
+│   ├── 03_temporal_preprocessing.ipynb # Phần chuỗi thời gian
+│   ├── 06_text_preprocessing.ipynb   # Phần văn bản
+│   └── report.md                     # Tổng hợp và thảo luận kết quả
+├── src/individualproject/
 │   ├── time_series/                  # Hàm Python tái sử dụng cho chuỗi thời gian
 │   └── text/                         # Hàm Python tái sử dụng cho văn bản
 ├── data/
@@ -69,6 +70,9 @@ BY-NC-SA 4.0.
     ├── figures/                      # Biểu đồ sinh ra, không commit
     └── tables/                       # Bảng kết quả sinh ra, không commit
 ```
+
+`data/raw/` được chia thư mục theo từng dataset. Chỉ dùng `data/interim/` khi pipeline
+cần lưu dữ liệu trung gian; nếu không, có thể xử lý trong bộ nhớ.
 
 ## Cài đặt và build local
 
