@@ -1,2 +1,1 @@
-def main() -> None:
-    print("Hello from individualproject!")
+"""Reusable helpers for the preprocessing project."""

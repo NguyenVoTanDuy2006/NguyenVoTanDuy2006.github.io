@@ -1,16 +1,15 @@
 [project]
 name = "individualproject"
 version = "0.1.0"
-description = "Add your description here"
+description = "Preprocessing project for time-series and text data"
 readme = "README.md"
 authors = [
     { name = "Nguyen Vo Tan Duy", email = "nguyenvotanduy2006@gmail.com" }
 ]
 requires-python = ">=3.12"
-dependencies = []
-
-[project.scripts]
-individualproject = "individualproject:main"
+dependencies = [
+    "jupyter-book>=2.1.7",
+]
 
 [build-system]
 requires = ["uv_build>=0.12.8,<0.13.0"]
